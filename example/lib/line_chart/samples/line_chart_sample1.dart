@@ -124,13 +124,16 @@ class _LineChart extends StatelessWidget {
           fontWeight: FontWeight.bold,
           fontSize: 16,
         ),
+        crossMargin: 10,
         getTitles: (value) {
           switch (value.toInt()) {
-            case 2:
+            case 1:
               return 'SEPT';
-            case 7:
+            case 5:
               return 'OCT';
-            case 12:
+            case 10:
+              return 'OCT';
+            case 14:
               return 'DEC';
           }
           return '';

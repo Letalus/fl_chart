@@ -77,16 +77,19 @@ class _LineChartSample2State extends State<LineChartSample2> {
         bottomTitles: SideTitles(
           showTitles: true,
           reservedSize: 22,
+          crossMargin: 30,
           getTextStyles: (value) =>
               const TextStyle(color: Color(0xff68737d), fontWeight: FontWeight.bold, fontSize: 16),
           getTitles: (value) {
             switch (value.toInt()) {
-              case 2:
+              case 1:
                 return 'MAR';
-              case 5:
+              case 4:
                 return 'JUN';
-              case 8:
+              case 7:
                 return 'SEP';
+              case 10:
+                return 'NOV';
             }
             return '';
           },
@@ -118,7 +121,7 @@ class _LineChartSample2State extends State<LineChartSample2> {
       borderData:
           FlBorderData(show: true, border: Border.all(color: const Color(0xff37434d), width: 1)),
       minX: 0,
-      maxX: 11,
+      maxX: 10,
       minY: 0,
       maxY: 6,
       lineBarsData: [
@@ -176,12 +179,14 @@ class _LineChartSample2State extends State<LineChartSample2> {
               const TextStyle(color: Color(0xff68737d), fontWeight: FontWeight.bold, fontSize: 16),
           getTitles: (value) {
             switch (value.toInt()) {
-              case 2:
+              case 1:
                 return 'MAR';
               case 5:
                 return 'JUN';
               case 8:
                 return 'SEP';
+              case 11:
+                return 'DEZ';
             }
             return '';
           },

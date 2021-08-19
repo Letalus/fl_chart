@@ -376,6 +376,18 @@ abstract class AxisChartPainter<D extends AxisChartData> extends BaseChartPainte
     return (((spotX - data.minX) / deltaX) * chartUsableSize.width) + getLeftOffsetDrawSize(holder);
   }
 
+  /// With this function we can convert our [FlSpot] x
+  /// to the view base axis x .
+  /// the view 0, 0 is on the top/left, but the spots is bottom/left
+  double getTitlePixelX(double spotX, Size chartUsableSize, PaintHolder<D> holder, double crossMargin) {
+    final data = holder.data;
+    final deltaX = data.maxX - data.minX;
+    if (deltaX == 0.0) {
+      return getLeftOffsetDrawSize(holder);
+    }
+    return (((spotX - data.minX) / deltaX) * (chartUsableSize.width-crossMargin*2)) + getLeftOffsetDrawSize(holder);
+  }
+
   /// With this function we can convert our [FlSpot] y
   /// to the view base axis y.
   double getPixelY(double spotY, Size chartUsableSize, PaintHolder<D> holder) {

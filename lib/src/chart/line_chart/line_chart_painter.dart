@@ -961,7 +961,7 @@ class LineChartPainter extends AxisChartPainter<LineChartData> {
       while (horizontalSeek <= data.maxX) {
         if (bottomTitles.checkToShowTitle(
             data.minX, data.maxX, bottomTitles, bottomInterval, horizontalSeek)) {
-          var x = getPixelX(horizontalSeek, viewSize, holder);
+          var x = getTitlePixelX(horizontalSeek, viewSize, holder, bottomTitles.crossMargin)+bottomTitles.crossMargin/2;
           var y = viewSize.height + getTopOffsetDrawSize(holder);
           final text = bottomTitles.getTitles(horizontalSeek);
           final span = TextSpan(style: bottomTitles.getTextStyles(horizontalSeek), text: text);

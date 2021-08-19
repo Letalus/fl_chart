@@ -261,6 +261,7 @@ class SideTitles with EquatableMixin {
   final GetTitleTextStyleFunction getTextStyles;
   final TextDirection textDirection;
   final double margin;
+  final double crossMargin;
   final double? interval;
   final double rotateAngle;
   final CheckToShowTitle checkToShowTitle;
@@ -290,6 +291,8 @@ class SideTitles with EquatableMixin {
   ///
   /// [overlapChart] enables the titles to overlap the chart meaning the titles are above the chart
   /// defaults to false
+  /// [crossMargin] defines the margin to the opposite direction of the normal margin property.
+  /// F.e. a bottom title crossMargin would be to either the left or right of the title
   SideTitles({
     bool? showTitles,
     GetTitleFunction? getTitles,
@@ -297,6 +300,7 @@ class SideTitles with EquatableMixin {
     GetTitleTextStyleFunction? getTextStyles,
     TextDirection? textDirection,
     double? margin,
+    double? crossMargin,
     double? interval,
     double? rotateAngle,
     bool? overlapChart = false,
@@ -307,6 +311,7 @@ class SideTitles with EquatableMixin {
         getTextStyles = getTextStyles ?? defaultGetTitleTextStyle,
         textDirection = textDirection ?? TextDirection.ltr,
         margin = margin ?? 6,
+        crossMargin = crossMargin ?? 0,
         interval = interval,
         rotateAngle = rotateAngle ?? 0.0,
         overlapChart = overlapChart ?? false,
