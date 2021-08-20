@@ -256,7 +256,8 @@ bool defaultCheckToShowTitle(
 /// Holds data for showing each side titles (a title per each axis value).
 class SideTitles with EquatableMixin {
   final bool showTitles;
-  final GetTitleFunction getTitles;
+  final GetTitleStringFunction getTitles;
+  final GetTitleTextSpanFunction? getTextSpanTitles;
   final double reservedSize;
   final GetTitleTextStyleFunction getTextStyles;
   final TextDirection textDirection;
@@ -295,7 +296,8 @@ class SideTitles with EquatableMixin {
   /// F.e. a bottom title crossMargin would be to either the left or right of the title
   SideTitles({
     bool? showTitles,
-    GetTitleFunction? getTitles,
+    GetTitleStringFunction? getTitles,
+    GetTitleTextSpanFunction? getTextSpanTitles,
     double? reservedSize,
     GetTitleTextStyleFunction? getTextStyles,
     TextDirection? textDirection,
@@ -315,6 +317,7 @@ class SideTitles with EquatableMixin {
         interval = interval,
         rotateAngle = rotateAngle ?? 0.0,
         overlapChart = overlapChart ?? false,
+        getTextSpanTitles = getTextSpanTitles,
         checkToShowTitle = checkToShowTitle ?? defaultCheckToShowTitle {
     if (interval == 0) {
       throw ArgumentError("SideTitles.interval couldn't be zero");

@@ -852,9 +852,13 @@ class LineChartPainter extends AxisChartPainter<LineChartData> {
           var x = 0 + getLeftOffsetDrawSize(holder);
           var y = getPixelY(verticalSeek, viewSize, holder);
 
-          final text = leftTitles.getTitles(verticalSeek);
-
-          final span = TextSpan(style: leftTitles.getTextStyles(verticalSeek), text: text);
+          TextSpan span;
+          if(leftTitles.getTextSpanTitles!=null){
+            span = leftTitles.getTextSpanTitles!(verticalSeek);
+          }else{
+            final text = leftTitles.getTitles(verticalSeek);
+            span = TextSpan(style: leftTitles.getTextStyles(verticalSeek), text: text);
+          }
           final tp = TextPainter(
               text: span,
               textAlign: TextAlign.center,
@@ -893,9 +897,13 @@ class LineChartPainter extends AxisChartPainter<LineChartData> {
           var x = getPixelX(horizontalSeek, viewSize, holder);
           var y = getTopOffsetDrawSize(holder);
 
-          final text = topTitles.getTitles(horizontalSeek);
-
-          final span = TextSpan(style: topTitles.getTextStyles(horizontalSeek), text: text);
+          TextSpan span;
+          if(topTitles.getTextSpanTitles!=null){
+            span = topTitles.getTextSpanTitles!(horizontalSeek);
+          }else{
+            final text = topTitles.getTitles(horizontalSeek);
+            span = TextSpan(style: topTitles.getTextStyles(horizontalSeek), text: text);
+          }
           final tp = TextPainter(
               text: span,
               textAlign: TextAlign.center,
@@ -928,9 +936,13 @@ class LineChartPainter extends AxisChartPainter<LineChartData> {
           var x = viewSize.width + getLeftOffsetDrawSize(holder);
           var y = getPixelY(verticalSeek, viewSize, holder);
 
-          final text = rightTitles.getTitles(verticalSeek);
-
-          final span = TextSpan(style: rightTitles.getTextStyles(verticalSeek), text: text);
+          TextSpan span;
+          if(rightTitles.getTextSpanTitles!=null){
+            span = rightTitles.getTextSpanTitles!(verticalSeek);
+          }else{
+            final text = rightTitles.getTitles(verticalSeek);
+            span = TextSpan(style: rightTitles.getTextStyles(verticalSeek), text: text);
+          }
           final tp = TextPainter(
               text: span,
               textAlign: TextAlign.center,
@@ -963,8 +975,14 @@ class LineChartPainter extends AxisChartPainter<LineChartData> {
             data.minX, data.maxX, bottomTitles, bottomInterval, horizontalSeek)) {
           var x = getTitlePixelX(horizontalSeek, viewSize, holder, bottomTitles.crossMargin)+bottomTitles.crossMargin;
           var y = viewSize.height + getTopOffsetDrawSize(holder);
-          final text = bottomTitles.getTitles(horizontalSeek);
-          final span = TextSpan(style: bottomTitles.getTextStyles(horizontalSeek), text: text);
+
+          TextSpan span;
+          if(bottomTitles.getTextSpanTitles!=null){
+            span = bottomTitles.getTextSpanTitles!(horizontalSeek);
+          }else{
+            final text = bottomTitles.getTitles(horizontalSeek);
+            span = TextSpan(style: bottomTitles.getTextStyles(horizontalSeek), text: text);
+          }
           final tp = TextPainter(
               text: span,
               textAlign: TextAlign.center,

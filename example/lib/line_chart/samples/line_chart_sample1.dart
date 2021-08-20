@@ -52,15 +52,15 @@ class _LineChart extends StatelessWidget {
           getTitles: (value) {
             switch (value.toInt()) {
               case 1:
-                return '1m';
+                return TextSpan(text: '1m');
               case 2:
-                return '2m';
+                return TextSpan(text: '2m');
               case 3:
-                return '3m';
+                return TextSpan(text: '3m');
               case 4:
-                return '5m';
+                return TextSpan(text: '4m');
             }
-            return '';
+            return TextSpan(text: '');
           },
         ),
       );
@@ -81,17 +81,20 @@ class _LineChart extends StatelessWidget {
           getTitles: (value) {
             switch (value.toInt()) {
               case 1:
-                return '1m';
+                return TextSpan(children: [
+                  TextSpan(text: '1.', style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
+                  TextSpan(text: 'm')
+                ]);
               case 2:
-                return '2m';
+                return TextSpan(text: '2m');
               case 3:
-                return '3m';
+                return TextSpan(text: '3m');
               case 4:
-                return '5m';
+                return TextSpan(text: '4m');
               case 5:
-                return '6m';
+                return TextSpan(text: '5m');
             }
-            return '';
+            return TextSpan(text: '');
           },
         ),
       );
@@ -102,11 +105,11 @@ class _LineChart extends StatelessWidget {
         lineChartBarData2_3,
       ];
 
-  SideTitles leftTitles({required GetTitleFunction getTitles}) => SideTitles(
-        getTitles: getTitles,
+  SideTitles leftTitles({required GetTitleTextSpanFunction getTitles}) => SideTitles(
+        getTextSpanTitles: getTitles,
         showTitles: true,
         margin: 4,
-        reservedSize: 30,
+        reservedSize: 40,
         overlapChart: true,
         getTextStyles: (value) => const TextStyle(
           color: Color(0xff75729e),
@@ -125,18 +128,21 @@ class _LineChart extends StatelessWidget {
           fontSize: 16,
         ),
         crossMargin: 10,
-        getTitles: (value) {
+        getTextSpanTitles: (value) {
           switch (value.toInt()) {
             case 1:
-              return 'SEPT';
+              return TextSpan(children: [
+                TextSpan(text: '1.', style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
+                TextSpan(text: 'SEP')
+              ]);
             case 5:
-              return 'OCT';
+              return TextSpan(text: 'OCT');
             case 10:
-              return 'OCT';
+              return TextSpan(text: 'OCT');
             case 14:
-              return 'DEC';
+              return TextSpan(text: 'DEC');
           }
-          return '';
+          return TextSpan(text: '');
         },
       );
 
