@@ -85,25 +85,29 @@ class _LineChartState extends AnimatedWidgetBaseState<LineChart> {
         touchResponse.touchInput is PointerMoveEvent ||
         touchResponse.touchInput is PointerHoverEvent;
     if (desiredTouch && touchResponse.lineBarSpots != null) {
-      setState(() {
-        final sortedLineSpots = List.of(touchResponse.lineBarSpots!);
-        sortedLineSpots.sort((spot1, spot2) => spot2.y.compareTo(spot1.y));
+      if(mounted) {
+        setState(() {
+          final sortedLineSpots = List.of(touchResponse.lineBarSpots!);
+          sortedLineSpots.sort((spot1, spot2) => spot2.y.compareTo(spot1.y));
 
-        _showingTouchedIndicators.clear();
-        for (var i = 0; i < touchResponse.lineBarSpots!.length; i++) {
-          final touchedBarSpot = touchResponse.lineBarSpots![i];
-          final barPos = touchedBarSpot.barIndex;
-          _showingTouchedIndicators[barPos] = [touchedBarSpot.spotIndex];
-        }
+          _showingTouchedIndicators.clear();
+          for (var i = 0; i < touchResponse.lineBarSpots!.length; i++) {
+            final touchedBarSpot = touchResponse.lineBarSpots![i];
+            final barPos = touchedBarSpot.barIndex;
+            _showingTouchedIndicators[barPos] = [touchedBarSpot.spotIndex];
+          }
 
-        _showingTouchedTooltips.clear();
-        _showingTouchedTooltips.add(ShowingTooltipIndicators(sortedLineSpots));
-      });
+          _showingTouchedTooltips.clear();
+          _showingTouchedTooltips.add(ShowingTooltipIndicators(sortedLineSpots));
+        });
+      }
     } else {
-      setState(() {
-        _showingTouchedTooltips.clear();
-        _showingTouchedIndicators.clear();
-      });
+      if(mounted) {
+        setState(() {
+          _showingTouchedTooltips.clear();
+          _showingTouchedIndicators.clear();
+        });
+      }
     }
   }
 
