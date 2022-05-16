@@ -1,6 +1,5 @@
 import 'package:example/radar_chart/radar_chart_page.dart';
 import 'package:example/scatter_chart/scatter_chart_page.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'bar_chart/bar_chart_page.dart';

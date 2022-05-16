@@ -1,7 +1,5 @@
 import 'package:fl_chart/fl_chart.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/gestures.dart';
 
 /// Icons by svgrepo.com (https://www.svgrepo.com/collection/job-and-professions-3/)
@@ -155,12 +153,7 @@ class _Badge extends StatelessWidget {
         ],
       ),
       padding: EdgeInsets.all(size * .15),
-      child: Center(
-        child: SvgPicture.asset(
-          svgAsset,
-          fit: BoxFit.contain,
-        ),
-      ),
+      child: Container(),
     );
   }
 }
