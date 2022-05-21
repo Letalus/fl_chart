@@ -1267,6 +1267,7 @@ class LineChartPainter extends AxisChartPainter<LineChartData> {
         if (tooltipData.shadowMaskFilter != null) {
           canvasWrapper.drawShadow(
               roundedRect, _bgTouchTooltipPaint, tooltipData.shadowMaskFilter!, tooltipData.shadowColor);
+          _bgTouchTooltipPaint.color = tooltipData.tooltipBgColor;
         }
         canvasWrapper.drawRRect(roundedRect, _bgTouchTooltipPaint);
       },

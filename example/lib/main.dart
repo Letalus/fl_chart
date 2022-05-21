@@ -76,7 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: SafeArea(
         child: PageView(
           physics:
-              isDesktopOrWeb ? NeverScrollableScrollPhysics() : AlwaysScrollableScrollPhysics(),
+              isDesktopOrWeb ? NeverScrollableScrollPhysics() : NeverScrollableScrollPhysics(),
           controller: _controller,
           children: _pages,
         ),

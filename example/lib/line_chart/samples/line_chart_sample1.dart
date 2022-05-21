@@ -42,7 +42,9 @@ class _LineChart extends StatelessWidget {
         touchCallback: (LineTouchResponse touchResponse) {},
         handleBuiltInTouches: true,
         touchTooltipData: LineTouchTooltipData(
-          tooltipBgColor: Colors.blueGrey.withOpacity(0.8),
+          tooltipBgColor: Colors.blueGrey,
+          shadowMaskFilter: MaskFilter.blur(BlurStyle.normal, 1),
+          shadowColor: Colors.red
         ),
       );
 
