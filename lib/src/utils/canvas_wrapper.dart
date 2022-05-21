@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:fl_chart/src/utils/utils.dart';
 import 'package:flutter/cupertino.dart' hide Image;
+import 'package:flutter/material.dart' hide Image;
 
 /// Proxies Canvas functions
 ///
@@ -19,6 +20,13 @@ class CanvasWrapper {
 
   /// Directly calls [Canvas.drawRRect]
   void drawRRect(RRect rrect, Paint paint) => canvas.drawRRect(rrect, paint);
+
+  void drawShadow(RRect rRect, Paint paint, MaskFilter shadowMaskFilter, Color? shadowColor) {
+    paint
+      ..maskFilter = shadowMaskFilter
+      ..color = shadowColor ?? Colors.white;
+    canvas.drawRRect(rRect, paint);
+  }
 
   /// Directly calls [Canvas.save]
   void save() => canvas.save();
@@ -49,8 +57,7 @@ class CanvasWrapper {
   void drawImage(Image image, Offset offset, Paint paint) => canvas.drawImage(image, offset, paint);
 
   /// Directly calls [Canvas.clipPath]
-  void clipPath(Path path, {bool doAntiAlias = true}) =>
-      canvas.clipPath(path, doAntiAlias: doAntiAlias);
+  void clipPath(Path path, {bool doAntiAlias = true}) => canvas.clipPath(path, doAntiAlias: doAntiAlias);
 
   /// Directly calls [Canvas.drawRect]
   void drawRect(Rect rect, Paint paint) => canvas.drawRect(rect, paint);
@@ -59,8 +66,7 @@ class CanvasWrapper {
   void drawLine(Offset p1, Offset p2, Paint paint) => canvas.drawLine(p1, p2, paint);
 
   /// Directly calls [Canvas.drawCircle]
-  void drawCircle(Offset center, double radius, Paint paint) =>
-      canvas.drawCircle(center, radius, paint);
+  void drawCircle(Offset center, double radius, Paint paint) => canvas.drawCircle(center, radius, paint);
 
   /// Directly calls [Canvas.drawCircle]
   void drawArc(Rect rect, double startAngle, double sweepAngle, bool useCenter, Paint paint) =>
