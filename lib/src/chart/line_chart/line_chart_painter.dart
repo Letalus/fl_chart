@@ -1263,12 +1263,12 @@ class LineChartPainter extends AxisChartPainter<LineChartData> {
       drawOffset: rectDrawOffset,
       angle: rotateAngle,
       drawCallback: () {
-        canvasWrapper.drawRRect(roundedRect, _bgTouchTooltipPaint);
 
         if (tooltipData.shadowMaskFilter != null) {
           canvasWrapper.drawShadow(
               roundedRect, _bgTouchTooltipPaint, tooltipData.shadowMaskFilter!, tooltipData.shadowColor);
         }
+        canvasWrapper.drawRRect(roundedRect, _bgTouchTooltipPaint);
       },
     );
 
